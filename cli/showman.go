@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/jbrodriguez/mlog"
 )
@@ -47,13 +48,14 @@ func setup(version string) (*Settings, error) {
 
 func run(settings *Settings) {
 	mlog.DefaultFlags = mlog.DefaultFlags &^ (log.Ldate | log.Ltime | log.Lshortfile)
-	if settings.LogToFile {
-		mlog.Start(mlog.LevelInfo, filepath.Join(settings.DataDir, "logs", "showman.log"))
+
+	if settings.LogDir != "" {
+		mlog.Start(mlog.LevelInfo, filepath.Join(settings.LogDir, "showman.log"))
 	} else {
 		mlog.Start(mlog.LevelInfo, "")
 	}
 
-	mlog.Info("showman v%s starting ...", settings.Version)
+	mlog.Info("showman v%s starting [%s] ...", settings.Version, time.Now().Format(time.RFC3339))
 
 	var msg string
 	if settings.Location == "" {
@@ -66,6 +68,11 @@ func run(settings *Settings) {
 	shows, err := Scan(settings)
 	if err != nil {
 		mlog.Warning("Unable to scan for shows: %s", err)
+	}
+
+	if len(shows) == 0 {
+		mlog.Info("No new shows found. Nothing do, exiting now ...")
+		return
 	}
 
 	shows, err = Scrape(settings, shows)
