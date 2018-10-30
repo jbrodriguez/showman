@@ -28,7 +28,7 @@ fi
 popd
 
 echo "Generating release ..."
-rm -rf release && mkdir -p $APP_RELEASE/{cli}
+rm -rf release && mkdir -p $APP_RELEASE/cli
 cp -r cli/${PROG} ${APP_RELEASE}/cli
 cp scripts/install ${APP_RELEASE}
 cp LICENSE $APP_RELEASE

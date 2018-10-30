@@ -5,7 +5,7 @@ function error {
   exit 1
 }
 
-PROG="audiobox"
+PROG="showman"
 VERSION=`cat VERSION 2> /dev/null`
 
 git checkout rel/${VERSION}

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+PROG="showman"
 BINPATH="${HOME}/bin"
 
 # Use -gt 1 to consume two arguments per pass in the loop (e.g. each
@@ -30,4 +31,4 @@ done
 echo "BINPATH = ${BINPATH}"
 
 # Copy binary to binary folder
-cp ./cli/showman ${BINPATH}
+cp ./cli/${PROG} ${BINPATH}

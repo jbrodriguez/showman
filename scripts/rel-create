@@ -7,14 +7,9 @@ function error {
 	exit 1
 }
 
-PROG="audiobox"
+PROG="showman"
 
-# install client dependencies
-pushd client
-npm install
-popd
-
-# this builds both client and server
+# this builds the cli
 scripts/bundle
 
 if [ $? -ne 0 ]; then
