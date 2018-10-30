@@ -31,11 +31,11 @@ clean:
 # run formatting tool and build
 build: dependencies clean
 	go build fmt
-	go build -tags "sqlite_fts5" -ldflags "-X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
+	go build -ldflags "-X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
 
 release: dependencies clean
 	go build fmt
-	go build -tags "sqlite_fts5" -ldflags "-X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
+	go build -ldflags "-X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
  
 # run unit tests with code coverage
 test: dependencies
