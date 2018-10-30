@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+function error {
+  echo -e "$1" >&2
+  exit 1
+}
+
+PROG="showman"
+APP_RELEASE="release/$PROG"
+APP_VERSION=$(cat VERSION)
+APP_FILE="$PROG-$APP_VERSION.tgz"
+echo $APP_FILE
+
+if [ -f "$APP_FILE" ]; then
+	echo -e "Bundle $APP_FILE already exists. No further actions will be taken." >&2
+	exit 0
+fi
+
+rm -rf ./dist
+
+echo "Building cli"
+pushd cli
+make release
+if [ $? -ne 0 ]; then
+	popd
+	error "Unable to build cli. Please check and try again"
+fi
+popd
+
+echo "Generating release ..."
+rm -rf release && mkdir -p $APP_RELEASE/{cli}
+cp -r cli/${PROG} ${APP_RELEASE}/cli
+cp scripts/install ${APP_RELEASE}
+cp LICENSE $APP_RELEASE
+cp VERSION $APP_RELEASE
+cp README.md $APP_RELEASE
+
+pushd release
+tar czvf ./$APP_FILE $PROG
+popd

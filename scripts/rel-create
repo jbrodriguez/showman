@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function error {
+	NAME=$1
+
+	printf "$1"
+	exit 1
+}
+
+PROG="audiobox"
+
+# install client dependencies
+pushd client
+npm install
+popd
+
+# this builds both client and server
+scripts/bundle
+
+if [ $? -ne 0 ]; then
+	error "Unable to create release. Please check and try again"
+fi
+
+echo "Successfully generated $PROG"
