@@ -77,7 +77,7 @@ func run(settings *Settings) {
 
 	shows, err = Scrape(settings, shows)
 	if err != nil {
-		mlog.Warning("Unable to scrape shows: %s", err)
+		mlog.Warning("Unable to scrape one or more shows: %s", err)
 	}
 
 	Move(settings, shows)

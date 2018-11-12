@@ -3,6 +3,7 @@ package main
 import (
 	"net/url"
 	"strconv"
+	"time"
 
 	"github.com/pioz/tvdb"
 
@@ -28,9 +29,12 @@ func Scrape(settings *Settings, shows Shows) (Shows, error) {
 
 		series, err := c.BestSearch(name)
 		if err != nil {
-			return shows, err
+			mlog.Warning("Unable to locate %s: %s", name, err)
+			time.Sleep(2 * time.Second)
+			continue
 		}
 
+		show.Scraped = true
 		show.Name = series.SeriesName
 
 		for season, episodes := range show.Seasons {
@@ -70,6 +74,9 @@ func Scrape(settings *Settings, shows Shows) (Shows, error) {
 				mlog.Info("Found [%s - S%sE%s - %s]", show.Name, season, episodes[0].Episode, episodes[0].Name)
 			}
 		}
+
+		// avoid rate limiting from the api
+		time.Sleep(2 * time.Second)
 	}
 
 	mlog.Info("Finished scraping shows ...")
