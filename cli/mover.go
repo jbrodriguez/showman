@@ -15,6 +15,9 @@ func Move(settings *Settings, shows Shows) error {
 	r := strings.NewReplacer(":", "", "*", "", "/", "", "?", "")
 
 	for _, show := range shows {
+		if !show.Scraped {
+			continue
+		}
 
 		for season, episodes := range show.Seasons {
 			destination := filepath.Join(settings.DestDir, show.Name, season)

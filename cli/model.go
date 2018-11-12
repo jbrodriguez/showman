@@ -11,6 +11,7 @@ type Episode struct {
 type Show struct {
 	Name    string                `json:"name,omitempty"`
 	Seasons map[string][]*Episode `json:"seasons,omitempty"`
+	Scraped bool
 }
 
 type Shows map[string]*Show
