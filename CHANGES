@@ -1,3 +1,8 @@
+Version 1.1.0 - 2018-11-12
+- Fix issue when tvdb is down
+- Add vscode settings
+
+
 Version 1.0.1 - 2018-10-30
 - Post-release fixes
 
