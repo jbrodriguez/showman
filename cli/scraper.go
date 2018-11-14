@@ -3,6 +3,7 @@ package main
 import (
 	"net/url"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/pioz/tvdb"
@@ -27,7 +28,16 @@ func Scrape(settings *Settings, shows Shows) (Shows, error) {
 	for name, show := range shows {
 		mlog.Info("Looking up %s ...", name)
 
-		series, err := c.BestSearch(name)
+		var series tvdb.Series
+		var err error
+
+		if strings.HasPrefix(name, "tvdbid-") {
+			series.ID, _ = strconv.Atoi(name[7:])
+			err = c.GetSeries(&series)
+		} else {
+			series, err = c.BestSearch(name)
+		}
+
 		if err != nil {
 			mlog.Warning("Unable to locate %s: %s", name, err)
 			time.Sleep(2 * time.Second)
