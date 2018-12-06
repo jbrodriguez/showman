@@ -47,11 +47,21 @@ func Move(settings *Settings, shows Shows) error {
 					}
 				}
 
+				empty, err := IsDirEmpty(episode.Location)
+				if err != nil {
+					mlog.Warning("Unable to check for empty folder (%s): %s", episode.Location, err)
+					continue
+				}
+
+				if !empty {
+					continue
+				}
+
 				src := episode.Location
 				dst := filepath.Join(settings.TransferDir, filepath.Base(episode.Location))
 
 				mlog.Info("Transferring [%s] -> [%s] ...", src, dst)
-				err := os.Rename(src, dst)
+				err = os.Rename(src, dst)
 				if err != nil {
 					mlog.Warning("Unable to move (%s) to (%s): %s", src, dst, err)
 					mlog.Info("")
