@@ -1,0 +1,3 @@
+2018-12-06 - 1.3.0
+
+- Support full season folders
