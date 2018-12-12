@@ -12,6 +12,7 @@ type Show struct {
 	Name    string                `json:"name,omitempty"`
 	Seasons map[string][]*Episode `json:"seasons,omitempty"`
 	Scraped bool
+	Multi   bool
 }
 
 type Shows map[string]*Show

@@ -96,6 +96,7 @@ func handleSingleEpisode(root string, entry os.FileInfo, matches []string, shows
 	if show, ok = shows[showName]; !ok {
 		show = &Show{
 			Seasons: make(map[string][]*Episode),
+			Multi:   false,
 		}
 	}
 
@@ -184,6 +185,7 @@ func handleFullSeason(root string, entry os.FileInfo, shows Shows) {
 		if show, ok = shows[showName]; !ok {
 			show = &Show{
 				Seasons: make(map[string][]*Episode),
+				Multi:   true,
 			}
 
 			// this adds the show to the "global" shows instance
