@@ -53,7 +53,7 @@ func Move(settings *Settings, shows Shows) error {
 					continue
 				}
 
-				if !empty {
+				if show.Multi && !empty {
 					continue
 				}
 
