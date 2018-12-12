@@ -1,0 +1,4 @@
+2018-12-12 - 1.3.1
+
+- Fix transfer logic for multi vs single episode folders
+
