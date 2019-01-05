@@ -10,7 +10,7 @@ import (
 	"github.com/jbrodriguez/mlog"
 )
 
-const allowed = ".mkv;.srt"
+const allowed = ".mkv;.avi;.srt"
 
 // var re = regexp.MustCompile(`(.*)\.S(\d\d)E(\d\d)\.`)
 var re = regexp.MustCompile(`(.*)[\.\s](S(\d\d)E(\d\d))[\.\s]`)
