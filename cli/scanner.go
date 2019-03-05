@@ -13,7 +13,7 @@ import (
 const allowed = ".mkv;.avi;.srt"
 
 // var re = regexp.MustCompile(`(.*)\.S(\d\d)E(\d\d)\.`)
-var re = regexp.MustCompile(`(.*)[\.\s](S(\d\d)E(\d\d))[\.\s]`)
+var re = regexp.MustCompile(`(.*)[\.\s](s(\d\d)e(\d\d))[\.\s]`)
 
 func Scan(settings *Settings) (Shows, error) {
 	root := settings.SourceDir
@@ -40,7 +40,7 @@ func Scan(settings *Settings) (Shows, error) {
 		// let's test for a single episode
 		// regex to obtain episode showname, seasonnumber, episodenumber
 		// lost.s01e01.scene
-		matches := re.FindStringSubmatch(entry.Name())
+		matches := re.FindStringSubmatch(strings.ToLower(entry.Name()))
 		if matches == nil {
 			// it's a full season folder
 			handleFullSeason(root, entry, shows)
