@@ -28,7 +28,7 @@ type Settings struct {
 }
 
 // NewSettings -
-func NewSettings(name, version, home string, locations []string) (*Settings, error) {
+func NewSettings(name, version, home string, locations []string) *Settings {
 	var config, dataDir, sourceDir, destDir, transferDir, logDir, apiKey, userKey, userName string
 
 	location := SearchFile(name, locations)
@@ -60,5 +60,5 @@ func NewSettings(name, version, home string, locations []string) (*Settings, err
 	s.UserName = userName
 	s.Location = location
 
-	return s, nil
+	return s
 }

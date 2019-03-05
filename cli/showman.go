@@ -41,13 +41,13 @@ func setup(version string) (*Settings, error) {
 		cwd,
 	}
 
-	settings, err := NewSettings("showman.conf", version, home, locations)
+	settings := NewSettings("showman.conf", version, home, locations)
 
-	return settings, err
+	return settings, nil
 }
 
 func run(settings *Settings) {
-	mlog.DefaultFlags = mlog.DefaultFlags &^ (log.Ldate | log.Ltime | log.Lshortfile)
+	mlog.DefaultFlags &^= (log.Ldate | log.Ltime | log.Lshortfile)
 
 	if settings.LogDir != "" {
 		mlog.Start(mlog.LevelInfo, filepath.Join(settings.LogDir, "showman.log"))

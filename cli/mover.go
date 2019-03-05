@@ -9,7 +9,7 @@ import (
 	"github.com/jbrodriguez/mlog"
 )
 
-func Move(settings *Settings, shows Shows) error {
+func Move(settings *Settings, shows Shows) {
 	mlog.Info("Starting mover ...")
 
 	r := strings.NewReplacer(":", "", "*", "", "/", "", "?", "")
@@ -74,6 +74,4 @@ func Move(settings *Settings, shows Shows) error {
 	}
 
 	mlog.Info("Finshed mover...")
-
-	return nil
 }
