@@ -161,7 +161,7 @@ func handleFullSeason(root string, entry os.FileInfo, shows Shows) {
 
 		// item is
 		// Locked Up S01E02 <scene>.{mkv|srt}
-		matches := re.FindStringSubmatch(item.Name())
+		matches := re.FindStringSubmatch(strings.ToLower(item.Name()))
 		if matches == nil {
 			mlog.Warning("Unable to get show data from filename %s", item.Name())
 			continue
@@ -174,7 +174,7 @@ func handleFullSeason(root string, entry os.FileInfo, shows Shows) {
 		showName := strings.ToLower(strings.Replace(matches[1], ".", " ", -1))
 		seasonNumber := matches[3]
 		episodeNumber := matches[4]
-		episodeId := matches[2]
+		episodeID := matches[2]
 
 		// this holds the season number to be used outside the loop
 		season = seasonNumber
@@ -195,7 +195,7 @@ func handleFullSeason(root string, entry os.FileInfo, shows Shows) {
 		// lookup this episode in the episodes map, it it doesn't exist, create the entry
 		// episodes["S01E02"] exists ?
 		var episode *Episode
-		if episode, ok = episodes[episodeId]; !ok {
+		if episode, ok = episodes[episodeID]; !ok {
 			// create an episode with the info we have so far
 			episode = &Episode{
 				Season:   seasonNumber,
@@ -204,7 +204,7 @@ func handleFullSeason(root string, entry os.FileInfo, shows Shows) {
 				Files:    make([]string, 0),
 			}
 
-			episodes[episodeId] = episode
+			episodes[episodeID] = episode
 		}
 
 		episode.Files = append(episode.Files, item.Name())
