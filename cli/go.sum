@@ -8,6 +8,8 @@ github.com/pioz/tvdb v0.0.0-20181030111906-4bc4113e2d1d h1:SxrekIQTHpAD1Zw1lpNhs
 github.com/pioz/tvdb v0.0.0-20181030111906-4bc4113e2d1d/go.mod h1:nhHRTrbEzdp4lXtiozX4Yuvo4AHi29nOvM1J7H/XJMM=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/ryanbradynd05/go-tmdb v0.0.0-20201006144520-c0566c3d1506 h1:UJ2ing2xklR2MHms4DNR0jd0kiPa9x1kFSLQs1/31qk=
+github.com/ryanbradynd05/go-tmdb v0.0.0-20201006144520-c0566c3d1506/go.mod h1:k/112WTJ3EoR7wjhtx8kOXO22CKNvJy+rNzGPXnuEsI=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.6.1 h1:hDPOHmpOpP40lSULcqw7IrRb/u7w6RpDC9399XyoNd0=
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
