@@ -15,6 +15,7 @@ const allowed = ".mkv;.avi;.srt"
 // var re = regexp.MustCompile(`(.*)\.S(\d\d)E(\d\d)\.`)
 var re = regexp.MustCompile(`(.*)[\.\s](s(\d\d)e(\d\d))[\.\s]`)
 
+// Scan -
 func Scan(settings *Settings) (Shows, error) {
 	root := settings.SourceDir
 

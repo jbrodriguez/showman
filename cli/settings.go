@@ -20,16 +20,17 @@ type Settings struct {
 	DestDir     string
 	TransferDir string
 	LogDir      string
-	ApiKey      string
+	APIKey      string
 	UserKey     string
 	UserName    string
+	Provider    string
 
 	Location string
 }
 
 // NewSettings -
 func NewSettings(name, version, home string, locations []string) *Settings {
-	var config, dataDir, sourceDir, destDir, transferDir, logDir, apiKey, userKey, userName string
+	var config, dataDir, sourceDir, destDir, transferDir, logDir, apiKey, userKey, userName, provider string
 
 	location := SearchFile(name, locations)
 
@@ -42,6 +43,7 @@ func NewSettings(name, version, home string, locations []string) *Settings {
 	flag.StringVar(&apiKey, "TVDB_APIKEY", "", "tvdb api key")
 	flag.StringVar(&userKey, "TVDB_USERKEY", "", "tvdb user key")
 	flag.StringVar(&userName, "TVDB_USERNAME", "", "tvdb user name")
+	flag.StringVar(&provider, "provider", "tvdb", "which provider should we use")
 
 	if found, _ := Exists(location); found {
 		flag.Set("config", location)
@@ -55,10 +57,11 @@ func NewSettings(name, version, home string, locations []string) *Settings {
 	s.DestDir = destDir
 	s.LogDir = logDir
 	s.TransferDir = transferDir
-	s.ApiKey = apiKey
+	s.APIKey = apiKey
 	s.UserKey = userKey
 	s.UserName = userName
 	s.Location = location
+	s.Provider = provider
 
 	return s
 }
