@@ -1,3 +1,12 @@
+Version 1.4.0 - 2020-11-27
+- Improve Makefile
+- Environment changes
+- Rename workspace
+- Fix lint errors
+- Add missing change
+- Implement themoviedb as tv shows data provider
+
+
 Version 1.3.3 - 2019-03-26
 - Fix issue handling full season folders
 
