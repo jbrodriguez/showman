@@ -1,0 +1,7 @@
+2020-11-27 - 1.4.0
+- Improve Makefile
+- Environment changes
+- Rename workspace
+- Fix lint errors
+- Add missing change
+- Implement themoviedb as tv shows data provider
