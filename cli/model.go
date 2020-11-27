@@ -1,5 +1,6 @@
 package main
 
+// Episode -
 type Episode struct {
 	Name     string   `json:"name,omitempty"`
 	Season   string   `json:"season,omitempty"`
@@ -8,6 +9,7 @@ type Episode struct {
 	Files    []string `json:"files,omitempty"`
 }
 
+// Show -
 type Show struct {
 	Name    string                `json:"name,omitempty"`
 	Seasons map[string][]*Episode `json:"seasons,omitempty"`
@@ -15,4 +17,5 @@ type Show struct {
 	Multi   bool
 }
 
+// Shows -
 type Shows map[string]*Show
