@@ -55,7 +55,7 @@ func NewSettings(name, version, home string, locations []string) *Settings {
 	s.DestDir = destDir
 	s.LogDir = logDir
 	s.TransferDir = transferDir
-	s.ApiKey = apiKey
+	s.APIKey = apiKey
 	s.UserKey = userKey
 	s.UserName = userName
 	s.Location = location
