@@ -20,7 +20,7 @@ type Settings struct {
 	DestDir     string
 	TransferDir string
 	LogDir      string
-	ApiKey      string
+	APIKey      string
 	UserKey     string
 	UserName    string
 

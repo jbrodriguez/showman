@@ -11,11 +11,12 @@ import (
 	"github.com/jbrodriguez/mlog"
 )
 
+// Scrape -
 func Scrape(settings *Settings, shows Shows) (Shows, error) {
 	mlog.Info("")
 	mlog.Info("Started scraping shows ...")
 
-	c := tvdb.Client{Apikey: settings.ApiKey, Username: settings.UserName, Userkey: settings.UserKey, Language: "en"}
+	c := tvdb.Client{Apikey: settings.APIKey, Username: settings.UserName, Userkey: settings.UserKey, Language: "en"}
 	err := c.Login()
 	if err != nil {
 		mlog.Warning("Unable to connect to TVDBv2: %s", err)
