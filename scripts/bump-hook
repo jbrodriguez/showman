@@ -32,6 +32,11 @@ ${COMMITS}
 ${PREVIOUS}
 EOF
 
-code metadata/changes/${APP_VERSION}.txt
+cat <<EOF > metadata/changes/latest.txt
+`date +%F` - ${APP_VERSION}
+${COMMITS}
+EOF
+
+# code metadata/changes/${APP_VERSION}.txt
 
 echo "Bumped versions successfully"
