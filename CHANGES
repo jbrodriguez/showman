@@ -1,3 +1,7 @@
+Version 1.4.1 - 2020-11-28
+- Automate release creation
+
+
 Version 1.4.0 - 2020-11-27
 - Improve Makefile
 - Environment changes
