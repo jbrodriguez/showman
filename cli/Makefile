@@ -24,8 +24,8 @@ clean:
 # run formatting tool and build
 build: clean
 	go build fmt
-	go build -ldflags "-X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
+	go build -ldflags "-s -w -X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
 
 release: clean
 	go build fmt
-	go build -ldflags "-X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
+	go build -ldflags "-s -w -X main.Version=$(mb_version)-$(mb_count).$(mb_hash)" -v -o ${PROG}
