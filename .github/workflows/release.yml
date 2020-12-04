@@ -27,9 +27,10 @@ jobs:
           prerelease: false
 
       - name: Set Environment
-        run: echo ::set-env name=APP_VERSION::$(cat VERSION)
-        run: echo ::set-env name=GIT_COUNT::$(git rev-list HEAD --count)
-        run: echo ::set-env name=GIT_HASH::$(git rev-parse --short HEAD)
+        run: |
+          echo ::set-env name=APP_VERSION::$(cat VERSION)
+          echo ::set-env name=GIT_COUNT::$(git rev-list HEAD --count)
+          echo ::set-env name=GIT_HASH::$(git rev-parse --short HEAD)
 
       - name: Build Go app
         uses: jbrodriguez/go-release-action@master
