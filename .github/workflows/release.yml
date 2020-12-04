@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -24,3 +25,19 @@ jobs:
           body_path: ./metadata/changes/latest.txt
           draft: false
           prerelease: false
+
+      - name: Set Environment
+        run: echo ::set-env name=APP_VERSION::$(cat VERSION)
+        run: echo ::set-env name=GIT_COUNT::$(git rev-list HEAD --count)
+        run: echo ::set-env name=GIT_HASH::$(git rev-parse --short HEAD)
+
+      - name: Build Go app
+        uses: jbrodriguez/go-release-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          goos: linux
+          goarch: amd64
+          build_flags: -ldflags "-s -w -X main.Version=${{ env.APP_VERSION }}-${{ env.GIT_COUNT }}.${{ env.GIT_HASH }}" -gcflags "all=-trimpath=$GOPATH" -v
+          project_path: "./cli"
+          binary_name: "showman"
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
