@@ -1,2 +1,2 @@
-2020-12-04 - 1.5.0
-- Create release artifacts
+2020-12-04 - 1.5.1
+- Fix workflow logic
