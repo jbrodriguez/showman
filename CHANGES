@@ -1,3 +1,7 @@
+Version 1.5.2 - 2020-12-04
+- Fix deprecated set-env error
+
+
 Version 1.5.1 - 2020-12-04
 - Fix workflow logic
 
