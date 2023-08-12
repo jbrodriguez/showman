@@ -1,2 +1,0 @@
-2020-11-28 - 1.4.1
-- Automate release creation

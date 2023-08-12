@@ -18,7 +18,6 @@ node_modules
 **/_vendor/pkg/
 **/vendor
 
-cli/cli
-cli/showman
+showman
 
 *.dylib

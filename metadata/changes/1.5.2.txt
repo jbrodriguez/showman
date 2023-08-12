@@ -1,2 +1,0 @@
-2020-12-04 - 1.5.2
-- Fix deprecated set-env error

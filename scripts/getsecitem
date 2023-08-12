@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo `security find-generic-password -s $1 -w`

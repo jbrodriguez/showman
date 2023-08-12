@@ -1,3 +1,0 @@
-2018-11-14 - 1.2.0
-
-- Support specifying a tvdbid directly
