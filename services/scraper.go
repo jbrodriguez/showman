@@ -54,8 +54,8 @@ func scrapeTMDB(ctx *domain.Context, episodes []*domain.Episode) {
 			}
 
 			series := results.Results[0]
-			name = series.Name
-			cache[episode.Series] = r.Replace(name)
+			name = r.Replace(series.Name)
+			cache[episode.Series] = name
 			color.Green("scraped: %s -> %s", episode.Series, name)
 			time.Sleep(1 * time.Second)
 		}
