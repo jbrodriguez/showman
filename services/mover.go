@@ -18,7 +18,7 @@ func (c *Core) move(ctx *domain.Context, episodes []*domain.Episode) {
 
 		destination := filepath.Join(ctx.DestinationPath, series, season)
 
-		color.Green("moving %s to %s", filepath.Base(episode.Location), destination)
+		color.Green("%s to %s", filepath.Base(episode.Location), destination)
 
 		err := os.MkdirAll(destination, 0755)
 		if err != nil {

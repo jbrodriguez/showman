@@ -24,7 +24,7 @@ func (c *Core) cleanup(ctx *domain.Context) error {
 		parentDir := filepath.Dir(path)
 		if parentDir == ctx.SourcePath {
 			// Print direct children of the root directory
-			color.Green("transferring %s", path)
+			color.Green("%s", path)
 
 			e := os.Rename(path, filepath.Join(ctx.TransferredPath, d.Name()))
 			if e != nil {
