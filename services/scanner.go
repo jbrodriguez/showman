@@ -12,7 +12,7 @@ import (
 
 const allowed = ".mp4;.mkv;.avi;.srt"
 
-var re = regexp.MustCompile(`/([^/]+)[\.-]s(\d{2})e(\d{2})[\.-]`)
+var re = regexp.MustCompile(`/([^/]+)[\s\.-]s(\d{1,2})e(\d{1,2})[\s\.-]`)
 var reYear = regexp.MustCompile(`(\s\d{4})$`)
 
 func (c *Core) scan(ctx *domain.Context) ([]*domain.Episode, error) {
